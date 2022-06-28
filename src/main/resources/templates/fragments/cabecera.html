@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head th:fragment="cabeceraLink">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Juego de Trivial</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Google fonts - Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <!-- Custom Scrollbar-->
+    <link rel="stylesheet" href="./vendor/overlayscrollbars/css/OverlayScrollbars.min.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="./css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="./css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="./img/favicon.ico">
+
+</head>
+<body>
+
+
+<div  th:fragment="cabecera">
+
+   <!-- Side Navbar -->
+    <nav class="side-navbar">
+      <!-- Sidebar Header    -->
+      <div class="sidebar-header d-flex align-items-center justify-content-center p-3 mb-3">
+        <!-- User Info-->
+        <div class="sidenav-header-inner text-center"><img class="img-fluid rounded-circle mb-2" src="img/logo.ico" alt="person">
+        </div>
+        <!-- Small Brand information, appears on minimized sidebar--><a class="brand-small text-center" href="index.html">
+          <p class="h1 m-0 text-blue">JT</p></a>
+      </div>
+      <!-- Sidebar Navigation Menus--><span class="text-uppercase text-gray-500 text-sm fw-bold letter-spacing-0 mx-lg-2 heading">Menú</span>
+      <ul class="list-unstyled">                  
+        <li class="sidebar-item"><a class="sidebar-link" href="index.html"> 
+            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+              <use xlink:href="#real-estate-1"> </use>
+            </svg>Inicio </a></li>
+        <li class="sidebar-item"><a class="sidebar-link" href="forms.html"> 
+            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+              <use xlink:href="#survey-1"> </use>
+            </svg>Forms </a></li>
+        <li class="sidebar-item"><a class="sidebar-link" href="charts.html"> 
+            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+              <use xlink:href="#sales-up-1"> </use>
+            </svg>Charts </a></li>
+        <li class="sidebar-item"><a class="sidebar-link" href="tables.html"> 
+            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+              <use xlink:href="#portfolio-grid-1"> </use>
+            </svg>Tables </a></li>
+        <li class="sidebar-item"><a class="sidebar-link" href="#exampledropdownDropdown" data-bs-toggle="collapse"> 
+            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+              <use xlink:href="#browser-window-1"> </use>
+            </svg>Example dropdown </a>
+          <ul class="collapse list-unstyled " id="exampledropdownDropdown">
+            <li><a class="sidebar-link" href="#">Page</a></li>
+            <li><a class="sidebar-link" href="#">Page</a></li>
+            <li><a class="sidebar-link" href="#">Page</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </nav>
+    <div class="page">
+      <!-- navbar-->
+      <header class="header">
+        <nav class="navbar">
+          <div class="container-fluid">
+            <div class="d-flex align-items-center justify-content-between w-100">
+              <div class="d-flex align-items-center"><a class="menu-btn d-flex align-items-center justify-content-center p-2 bg-gray-900" id="toggle-btn" href="#">
+                  <svg class="svg-icon svg-icon-sm svg-icon-heavy text-white">
+                    <use xlink:href="#menu-1"> </use>
+                  </svg></a><a class="navbar-brand ms-2" href="index.html">
+                  <div class="brand-text d-none d-md-inline-block letter-spacing-0"><span class="text-blue fw-normal">Juego Trivial - </span><strong class="text-primary text-sm">Dashboard</strong></div></a></div>
+              <ul class="nav-menu mb-0 list-unstyled d-flex flex-md-row align-items-md-center">
+                <!-- Languages dropdown    -->
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle text-white text-sm" id="languages" rel="nofollow" data-bs-target="#" href="" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="img/flags/16/ES.png" alt="Español"><span class="d-none d-sm-inline-block ms-2">Español</span></a>
+                  <ul class="dropdown-menu dropdown-menu-end mt-sm-3 shadow-sm" aria-labelledby="languages">
+                    <li><a class="dropdown-item" rel="nofollow" href=""> <img class="me-2" src="img/flags/16/GB.png" alt="English"><span>English</span></a></li>
+                  </ul>
+                </li>
+                <!-- Log in-->
+                <li class="nav-item"><a class="nav-link text-white text-sm ps-0" href="index"> <span class="d-none d-sm-inline-block">Logout</span>
+                    <svg class="svg-icon svg-icon-xs svg-icon-heavy">
+                      <use xlink:href="#security-1"> </use>
+                    </svg></a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+      
+      
+      <div class="text-center">
+		<p>Hola Mundo</p>
+	</div>
+	
+      
+      
+    </div>
+    <!-- JavaScript files-->
+    <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./vendor/overlayscrollbars/js/OverlayScrollbars.min.js"></script>
+
+    <!-- Main File-->
+    <script src="./js/front.js"></script>
+    <script>
+      // ------------------------------------------------------- //
+      //   Inject SVG Sprite - 
+      //   see more here 
+      //   https://css-tricks.com/ajaxing-svg-sprite/
+      // ------------------------------------------------------ //
+      function injectSvgSprite(path) {
+      
+          var ajax = new XMLHttpRequest();
+          ajax.open("GET", path, true);
+          ajax.send();
+          ajax.onload = function(e) {
+          var div = document.createElement("div");
+          div.className = 'd-none';
+          div.innerHTML = ajax.responseText;
+          document.body.insertBefore(div, document.body.childNodes[0]);
+          }
+      }
+      // this is set to BootstrapTemple website as you cannot 
+      // inject local SVG sprite (using only 'icons/orion-svg-sprite.svg' path)
+      // while using file:// protocol
+      // pls don't forget to change to your domain :)
+      injectSvgSprite('https://bootstraptemple.com/files/icons/orion-svg-sprite.svg'); 
+      
+      
+    </script>
+    <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</div>
+</body>
+</html>

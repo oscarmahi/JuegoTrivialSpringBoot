@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Juego de Trivial</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Google fonts - Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+ 
+    <!-- Favicon-->
+    <link rel="shortcut icon" type="image/x-icon" href="img/control-de-juego.png">
+  </head>
+  <body>
+
+    <div>
+      <header class="header">
+        <nav class="navbar">
+          <div class="container-fluid">
+            <div class="d-flex align-items-center justify-content-between w-100">          
+              <div>
+                  <div class="brand-text d-none d-md-inline-block letter-spacing-0"><span class="text-blue fw-normal">Juego Trivial - </span>
+                  												<strong class="text-primary text-sm">Alta de usuario</strong>
+                  </div>
+                  </div>
+              </div>
+            </div>
+        </nav>        
+      </header>
+	<br/>
+	<h3 class="text-center text-blue fw-bold fs-1">Formulario de Registro de Usuarios</h3>
+	<hr />
+	
+	<h6 class="text-danger fs-6 fw-bold text-center fst-italic" th:if="${error} != null" th:text="${error}"></h6>
+	
+	<div class="col-md-8 col-lg-8 container abs-center">
+		<!-- <h4 class="mb-3 text-center">Pantalla de Cliente</h4> -->
+		<form th:action="@{/saveUser}" th:object="${usuario}" method="post" class="needs-validation" novalidate>
+			
+			<div  style="float:left;" class="mx-auto">
+				<div
+					class="d-flex flex-column align-items-center text-center p-3 py-5">
+					<img class="rounded-circle mt-5" width="300px"
+						th:src="@{${usuario.imagen}}"></img>
+				</div>
+			</div>
+			
+			<div class="row g-3">
+					<div class="col-12">
+					<label for="email" class="form-label">eMail</label> <input
+						type="text" class="form-control text-danger" id="email"
+						name="email"  th:src="@{${usuario.email}}" required>
+				</div>
+
+				<!-- EN FUNCION DE SI ES ADMINISTRADOR O NO MUESTRO LA CLAVE ENCRPTADA -->
+				<div class="col-6">
+					<!-- administrador -->
+					<label for="password" class="form-label">Password</label> <input
+						type="password" class="form-control text-danger" id="password"
+						name="password"  th:src="@{${usuario.password}}" required>
+				</div>
+				<div class="col-6">
+					<!-- administrador -->
+					<label for="clave" class="form-label">Repita Password</label> <input
+						type="password" class="form-control text-danger" id="clave2"
+						name="clave2" required>
+				</div>
+				<!-- ************************************************************************* -->
+
+
+				<div class="col-12">
+					<label for="nombre" class="form-label">Nombre</label> <input
+						type="text" class="form-control text-danger" id="nombre"
+						name="nombre" th:src="@{${usuario.nombre}}" required>
+					<div class="invalid-feedback">Complete los datos</div>
+				</div>
+				<div class="col-12">
+					<label for="apellidos" class="form-label">Apellidos</label> <input
+						type="text" class="form-control text-danger" id="apellidos"
+						name="apellidos" th:src="@{${usuario.apellidos}}">
+					<div class="invalid-feedback">Complete los datos</div>
+				</div>
+				<div class="col-12">
+					<label for="direccion" class="form-label">Direccion</label> <input
+						type="text" class="form-control text-danger" id="direccion"
+						name="direccion" th:src="@{${usuario.direccion}}">
+				</div>
+				<div class="col-12">
+					<label for="provincia" class="form-label">Provincia</label> <input
+						type="text" class="form-control text-danger" id="provincia"
+						name="provincia" th:src="@{${usuario.provincia}}">
+				</div>
+				<div class="col-6">
+					<label for="localidad" class="form-label">Poblacion</label> <input
+						type="text" class="form-control text-danger" id="localidad"
+						name="localidad" th:src="@{${usuario.poblacion}}">
+				</div>
+				<div class="col-6">
+					<label for="localidad" class="form-label">CP</label> <input
+						type="text" class="form-control text-danger" id="cp"
+						name="cp" th:src="@{${usuario.cp}}">
+				</div>
+				<div class="col-6">
+					<label for="telefono" class="form-label">Telefono</label> <input
+						type="text" class="form-control text-danger" id="telefono"
+						name="telefono" th:src="@{${usuario.telefono}}">
+				</div>
+					<label>Imagen Perfil: </label>
+           			<input type="file" placeholder="file" id="fichero" name="fichero" th:src="@{${usuario.imagen}}"/><br/><br/>   
+			</div>
+			<hr class="my-4"><br/>
+			<div class="position-relative">
+				<button class="w-25 btn btn-danger btn-lg position-absolute top-100 start-50 translate-middle" type="submit">Grabar</button>
+			</div>
+		</form>
+	</div>
+	<br/><br/>
+
+      <!-- Updates Section -->
+      <footer class="main-footer w-100 " style="background: #222">
+        <div class="container-fluid">
+          <div class="row text-center gy-3">
+            <div class="col-sm-6 text-sm-start">
+              <p class="mb-0 text-sm text-gray-600">Serbatic &copy; 2022</p>
+            </div>
+            <div class="col-sm-6 text-sm-end">
+              <p class="mb-0 text-sm text-gray-600">Design by Oscar Martinez</p>
+              <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions and it helps me to run Bootstrapious. Thank you for understanding :)-->
+            </div>
+          </div>
+        </div>
+      </footer>     
+    </div>
+    
+    
+    <script>
+		(function() {
+			'use strict'
+			// Fetch all the forms we want to apply custom Bootstrap validation styles to
+			var forms = document.querySelectorAll('.needs-validation')
+			// Loop over them and prevent submission
+			Array.prototype.slice.call(forms).forEach(function(form) {
+				form.addEventListener('submit', function(event) {
+					if (!form.checkValidity()) {
+						event.preventDefault()
+						event.stopPropagation()
+					}
+					form.classList.add('was-validated')
+				}, false)
+			})
+		})()
+	</script>
+    
+    
+    
+    
+  </body>
+</html>
