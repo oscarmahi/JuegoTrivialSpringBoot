@@ -32,4 +32,10 @@ public class UsuarioService {
 		return ok;
 	}
 
+	public Usuario getUsuarioService(int id) {
+
+		return usuarioRepo.findById(id);
+		
+	}
+
 }

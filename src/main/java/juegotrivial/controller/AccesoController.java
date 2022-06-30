@@ -31,21 +31,21 @@ public class AccesoController {
 		return ("/inicio");
 	}
 
-	@GetMapping("/registrar")
-	public String irARegistro(Model model) {
-
-		Usuario usuario = new Usuario();
-		model.addAttribute("usuario", usuario);
-		return ("/comunes/registro");
-	}
-	
-	@GetMapping("/perfil")
-	public String verPerfil(Model model) {
-
-		Usuario usuario = new Usuario();
-		model.addAttribute("usuario", usuario);
-		return ("/comunes/registro");
-	}
+//	@GetMapping("/registrar")
+//	public String irARegistro(Model model) {
+//
+//		Usuario usuario = new Usuario();
+//		model.addAttribute("usuario", usuario);
+//		return ("/comunes/registro");
+//	}
+//	
+//	@GetMapping("/perfil")
+//	public String verPerfil(Model model) {
+//
+//		Usuario usuario = new Usuario();
+//		model.addAttribute("usuario", usuario);
+//		return ("/comunes/registro");
+//	}
 
 	@PostMapping("/inicio")
 	public String login(Model model, @RequestParam String loginUsuario, @RequestParam String loginPassword,
@@ -61,29 +61,29 @@ public class AccesoController {
 		return "/index";
 	}
 
-	@PostMapping("/saveUser")
-	public String guardarUsuario(@ModelAttribute Usuario usuario, Model model, @RequestParam String clave2, String fichero) {
-		String error = null;
-
-		if (!clave2.equals(usuario.getPassword())) {
-			error = "Los campos clave han de ser iguales. Revise campos Clave.";
-			model.addAttribute("error", error);
-			model.addAttribute("usuarios", usuario);
-			return ("/comunes/registro");
-		} else {
-			if (fichero.length() != 0) {
-				fichero = "./img/avatar/".concat(fichero);
-				usuario.setImagen(fichero);
-			}
-			boolean ok = usuarioService.saveUsuarioService(usuario);		
-			if (!ok) {
-				error = "El email ya existe. Empleado no Grabado. Intente con otro.";
-				model.addAttribute("error", error);
-				model.addAttribute("usuarios", usuario);
-				return ("/comunes/registro");
-			}
-		}
-		return "/index";
-	}
+//	@PostMapping("/saveUser")
+//	public String guardarUsuario(@ModelAttribute Usuario usuario, Model model, @RequestParam String clave2, String fichero) {
+//		String error = null;
+//
+//		if (!clave2.equals(usuario.getPassword())) {
+//			error = "Los campos clave han de ser iguales. Revise campos Clave.";
+//			model.addAttribute("error", error);
+//			model.addAttribute("usuarios", usuario);
+//			return ("/comunes/registro");
+//		} else {
+//			if (fichero.length() != 0) {
+//				fichero = "./img/avatar/".concat(fichero);
+//				usuario.setImagen(fichero);
+//			}
+//			boolean ok = usuarioService.saveUsuarioService(usuario);		
+//			if (!ok) {
+//				error = "El email ya existe. Empleado no Grabado. Intente con otro.";
+//				model.addAttribute("error", error);
+//				model.addAttribute("usuarios", usuario);
+//				return ("/comunes/registro");
+//			}
+//		}
+//		return "/index";
+//	}
 
 }
